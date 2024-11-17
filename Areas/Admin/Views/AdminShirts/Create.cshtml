@@ -1,0 +1,74 @@
+﻿@model sh_rt.Models.Shirt
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Shirt</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDescription" class="control-label"></label>
+                <input asp-for="ShortDescription" class="form-control" />
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LongDescription" class="control-label"></label>
+                <input asp-for="LongDescription" class="form-control" />
+                <span asp-validation-for="LongDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FrontShirtImageUrl" class="control-label"></label>
+                <input asp-for="FrontShirtImageUrl" class="form-control" />
+                <span asp-validation-for="FrontShirtImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BehindShirtImageUrl" class="control-label"></label>
+                <input asp-for="BehindShirtImageUrl" class="form-control" />
+                <span asp-validation-for="BehindShirtImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageThumbnailUrl" class="control-label"></label>
+                <input asp-for="ImageThumbnailUrl" class="form-control" />
+                <span asp-validation-for="ImageThumbnailUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsFavoriteShirt" class="control-label"></label>
+                <input asp-for="IsFavoriteShirt" class="form-control" />
+                <span asp-validation-for="IsFavoriteShirt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InStock" class="control-label"></label>
+                <input asp-for="InStock" class="form-control" />
+                <span asp-validation-for="InStock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

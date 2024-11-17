@@ -1,0 +1,19 @@
+﻿@model IOrderedEnumerable<Category>
+<div>
+    <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Camisetas
+    </button>
+    <ul class="dropdown-menu">
+        @foreach (var category in Model)
+        {
+            <li>
+                <a class="dropdown-item" asp-controller="Shirt" asp-action="GetShirts" asp-route-category="@category.Name">@category.Name</a>
+            </li>
+        }
+
+        <li class="dropdown-divider"></li>
+        <li>
+            <a class="dropdown-item" asp-controller="Shirt" asp-action="GetShirts">Todas</a>
+        </li>
+    </ul>
+</div>

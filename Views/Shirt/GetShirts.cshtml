@@ -1,0 +1,16 @@
+﻿@model GetShirtListViewModel
+
+@{
+    ViewData["Title"] = "Shirts";
+}
+
+<div>
+    <h2>@Model.CurrentCategory</h2>
+</div>
+
+<div class="d-flex flex-wrap gap-1 text-center">
+    @foreach (var shirt in Model.Shirts)
+    {
+        <partial name="_Shirt" for="@shirt" />
+    }
+</div>

@@ -1,0 +1,27 @@
+﻿@model Shirt
+
+
+<div class="card" style="width: 18rem; background-color: #E3E3E3;">
+    <img src="@Model.ImageThumbnailUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">
+            <a asp-controller="Shirt" asp-action="Detail" asp-route-shirtId="@Model.Id">
+                @Model.Name
+            </a>
+        </h5>
+        <div>
+            <div>
+                <h6 class="card-subtitle mb-2 text-body-secondary">@Model.Price.ToString("c")</h6>
+
+            </div>
+            <p>ou até 2x de @((@Model.Price / 2).ToString("c")) no crédito </p>
+        </div>
+
+        <div>
+            <a class="btn btn-light" id="buyBtn" asp-controller="Cart" asp-action="AddItem" asp-route-shirtId="@Model.Id">
+                <span>Comprar</span>
+            </a>
+        </div>
+
+    </div>
+</div>

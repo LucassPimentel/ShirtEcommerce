@@ -1,0 +1,50 @@
+﻿@model CartViewModel
+
+
+<div class="container">
+    <div class="row">
+        <h4>Carrinho:</h4>
+        <table class="table-primary">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Camiseta</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Cart.CartItems)
+                {
+                    <tr>
+                        <td><img src="@item.Shirt.ImageThumbnailUrl"/></td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Shirt?.Name</td>
+                        <td>@item.Shirt?.Price.ToString("c")</td>
+                        <td>
+                            @(
+                                (item.Shirt?.Price * item.Quantity)?.ToString("c")
+                                )
+                        </td>
+                        <td>
+                            <a asp-controller="Cart" asp-action="RemoveItem" asp-route-shirtId="@item.Shirt?.Id">X</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total:</td>
+                    <td>@Model.TotalCartValue?.ToString("c")</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="btn-group" role="group" aria-label="Grupo de botões">
+            <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Encerrar Pedido</a>
+            <a class="btn btn-primary" asp-controller="Shirt" asp-action="GetShirts">Continuar Comprando</a>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,18 @@
+﻿@model Shirt
+
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            @*TODO: Substituir essa img por um card de img*@
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text">@Model.LongDescription</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a class="btn btn-outline-info" asp-controller="Shirt" asp-action="GetShirts">Continuar Comprando</a>
+                    <a class="btn btn-info" id="shirtId" asp-controller="Cart" asp-action="AddItem" asp-route-shirtId="@Model.Id">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

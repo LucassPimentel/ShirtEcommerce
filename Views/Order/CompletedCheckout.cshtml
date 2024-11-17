@@ -1,0 +1,33 @@
+﻿@model Order
+
+@{
+    ViewBag.Title = "Produtos Comprados";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">@Model.Name, obrigado pela preferência!</h2>
+    <div class="row">
+        @foreach (var item in Model.OrderItems)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="@item.Shirt.FrontShirtImageUrl" class="card-img-top" alt="@item.Shirt.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Shirt.Name</h5>
+                        <span>@item.Price</span>
+                        <p class="card-text">Data da Compra: @item.Order.CreatedAt?.ToString("dd/MM/yyyy")</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <h4>Total de Itens: @Model.TotalOrderItems</h4>
+        </div>
+        <div class="col-md-6">
+            <h4>Valor Total: @Model.TotalOrder.ToString("C")</h4>
+        </div>
+    </div>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Voltar para o Início</a>
+</div>
