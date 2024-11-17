@@ -20,19 +20,19 @@ namespace sh_rt.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult AnnualSales(int days)
+        public IActionResult AnnualSales()
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult MonthlySales(int days)
+        public IActionResult MonthlySales()
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult WeeklySales(int days)
+        public IActionResult WeeklySales()
         {
             return View();
         }

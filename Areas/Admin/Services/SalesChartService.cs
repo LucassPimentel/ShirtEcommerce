@@ -20,7 +20,7 @@ namespace sh_rt.Areas.Admin.Services
             var products = (from od in _context.OrderDetails
                             join s in _context.Shirts on od.ShirtId equals s.Id
                             where od.Order.CreatedAt.Value.Date >= data.Date
-                            group od by new { od.Id, s.Name, od.Quantity }
+                            group od by new { od.ShirtId, s.Name }
                             into g
                             select new SalesChart()
                             {
